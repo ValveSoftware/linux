@@ -77,7 +77,7 @@ arches:
  sparc64
  tilegx
  x32
-compiler: gcc-6
+compiler: gcc-4.9
 featuresets:
  none
  rt
@@ -101,7 +101,7 @@ initramfs-generators: initramfs-tools initramfs-fallback
 
 [relations]
 # compilers
-gcc-6: gcc-6 <!stage1 !cross>, gcc-6-@gnu-type-package@ <!stage1 cross>
+gcc-4.9: gcc-4.9 <!stage1 !cross>, gcc-4.9-@gnu-type-package@ <!stage1 cross>
 
 # initramfs-generators
 initramfs-fallback: linux-initramfs-tool
