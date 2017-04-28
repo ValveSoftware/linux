@@ -1,3 +1,9 @@
+linux (4.11-1~steamos1) stable; urgency=medium
+
+  * SteamOS 4.11 kernel release
+
+ -- John Vert <johnv@valvesoftware.com>  Mon, 01 May 2017 21:14:37 +0000
+
 linux (4.11-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_4.11
