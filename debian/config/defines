@@ -44,20 +44,20 @@ ignore-changes:
 
 [base]
 arches:
- alpha
+# alpha
  amd64
- arm64
- armel
- armhf
- hppa
- i386
- m68k
- mips
- mipsel
- mipsn32
- mipsn32el
- mips64
- mips64el
+# arm64
+# armel
+# armhf
+# hppa
+# i386
+# m68k
+# mips
+# mipsel
+# mipsn32
+# mipsn32el
+# mips64
+# mips64el
 # Disabled until dak accepts them in the control file
 # mipsr6
 # mipsr6el
@@ -65,18 +65,18 @@ arches:
 # mipsn32r6el
 # mips64r6
 # mips64r6el
- powerpc
- powerpcspe
- ppc64
- ppc64el
- s390
- s390x
- sh3
- sh4
- sparc
- sparc64
- tilegx
- x32
+# powerpc
+# powerpcspe
+# ppc64
+# ppc64el
+# s390
+# s390x
+# sh3
+# sh4
+# sparc
+# sparc64
+# tilegx
+# x32
 compiler: gcc-4.9
 featuresets:
  none
