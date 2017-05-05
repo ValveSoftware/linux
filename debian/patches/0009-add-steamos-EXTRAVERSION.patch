@@ -1,0 +1,25 @@
+From 60821c599984725670f89e4cfba19a7ddcbe2b5a Mon Sep 17 00:00:00 2001
+From: John Vert <johnv@valvesoftware.com>
+Date: Fri, 5 May 2017 12:04:21 -0700
+Subject: [PATCH 9/9] add -steamos EXTRAVERSION
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 4b074a9..66a3c50 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ VERSION = 4
+ PATCHLEVEL = 11
+ SUBLEVEL = 0
+-EXTRAVERSION =
++EXTRAVERSION = -steamos
+ NAME = Fearless Coyote
+ 
+ # *DOCUMENTATION*
+-- 
+2.7.4
+

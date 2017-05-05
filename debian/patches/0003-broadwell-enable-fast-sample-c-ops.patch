@@ -1,0 +1,27 @@
+From a6d2cc551e998c3399711625da421594f8d95aac Mon Sep 17 00:00:00 2001
+From: John Vert <johnv@valvesoftware.com>
+Date: Fri, 20 Jan 2017 14:47:55 -0800
+Subject: [PATCH 3/9] broadwell enable fast sample c ops
+
+---
+ drivers/gpu/drm/i915/intel_pm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/intel_pm.c b/drivers/gpu/drm/i915/intel_pm.c
+index 6a29784..9e25393 100644
+--- a/drivers/gpu/drm/i915/intel_pm.c
++++ b/drivers/gpu/drm/i915/intel_pm.c
+@@ -7267,6 +7267,10 @@ static void broadwell_init_clock_gating(struct drm_i915_private *dev_priv)
+ 	I915_WRITE(CHICKEN_PAR2_1, I915_READ(CHICKEN_PAR2_1)
+ 		   | KVM_CONFIG_CHANGE_NOTIFICATION_SELECT);
+ 
++	/* Faster SAMPLE_C operations. */
++	I915_WRITE(HALF_SLICE_CHICKEN3,
++		   _MASKED_BIT_ENABLE(HSW_SAMPLE_C_PERFORMANCE));
++
+ 	lpt_init_clock_gating(dev_priv);
+ }
+ 
+-- 
+2.7.4
+
