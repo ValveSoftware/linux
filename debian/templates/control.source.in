@@ -21,10 +21,10 @@ Build-Depends:
  bc,
 # used by upstream to build signing tools and to process certificates
 # - libssl-dev arch-qualification is a workaround for #827628 and #827633
- libssl-dev:native, libssl-dev [linux-any],
+ libssl-dev,
 # - openssl needs to run on the host; need :native for older versions that do
 #   not have M-A: allowed but need unqualified name for newer versions
- openssl (>= 1.1.0-1~) | openssl:native,
+ openssl,
 # used by upstream to build perf documentation
  asciidoc-base | asciidoc,
  xmlto,
