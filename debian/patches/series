@@ -183,3 +183,4 @@ bugfix/all/liblockdep-fix-defined-but-not-used-warning-for-init.patch
 0007-xpad-one-more-third-party-controller-courtesy-of-Ign.patch
 0008-add-REPORTING-BUGS-file-to-fix-build.patch
 0009-add-steamos-EXTRAVERSION.patch
+0010-refcount-change-EXPORT_SYMBOL-markings.patch
