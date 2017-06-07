@@ -1,7 +1,8 @@
-From e7bb9532b0a4a259b64170f8049259ca50307d66 Mon Sep 17 00:00:00 2001
+From c4b16e864770a4c67004cbaa6232c1ad3563336b Mon Sep 17 00:00:00 2001
 From: "Pierre-Loup A. Griffais" <eduke32@plagman.net>
 Date: Wed, 16 Nov 2016 17:17:09 -0800
-Subject: [PATCH 5/9] Add support for the Xbox One S controller over Bluetooth
+Subject: [PATCH 05/10] Add support for the Xbox One S controller over
+ Bluetooth
 
 ---
  drivers/hid/hid-core.c      |  1 +

@@ -1,7 +1,7 @@
-From c1504da39d8f8374fb8d8a4829503a840d60f7c5 Mon Sep 17 00:00:00 2001
+From c4c5a0db41e78f58e3fb3f98f98a4aedf23e437e Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Tue, 31 Jan 2017 17:38:49 -0800
-Subject: [PATCH 8/9] add REPORTING-BUGS file to fix build
+Subject: [PATCH 08/10] add REPORTING-BUGS file to fix build
 
 ---
  REPORTING-BUGS | 174 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++

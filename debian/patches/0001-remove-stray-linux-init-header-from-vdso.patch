@@ -1,7 +1,7 @@
-From 368f31427ec774147fcae3167cff76bf000c6428 Mon Sep 17 00:00:00 2001
+From 19f6a856132686eceba08a5cd80b48a4114024bd Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:02 +0000
-Subject: [PATCH 1/9] remove stray linux init header from vdso
+Subject: [PATCH 01/10] remove stray linux init header from vdso
 
 ---
  arch/x86/um/vdso/vdso.S | 1 -

@@ -1,7 +1,7 @@
-From a6d2cc551e998c3399711625da421594f8d95aac Mon Sep 17 00:00:00 2001
+From 198990f13e1d9429864c177d9441a6559771c5e2 Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Fri, 20 Jan 2017 14:47:55 -0800
-Subject: [PATCH 3/9] broadwell enable fast sample c ops
+Subject: [PATCH 03/10] broadwell enable fast sample c ops
 
 ---
  drivers/gpu/drm/i915/intel_pm.c | 4 ++++

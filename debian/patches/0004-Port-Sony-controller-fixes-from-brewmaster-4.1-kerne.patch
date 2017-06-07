@@ -1,7 +1,7 @@
-From 7aabed00fe8659d908627aec19c6bf055d5264c1 Mon Sep 17 00:00:00 2001
+From 1694ffa71a7999d4a7ca0177dab7187340734004 Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Fri, 20 Jan 2017 16:24:21 -0800
-Subject: [PATCH 4/9] Port Sony controller fixes from brewmaster-4.1 kernel
+Subject: [PATCH 04/10] Port Sony controller fixes from brewmaster-4.1 kernel
  https://github.com/ValveSoftware/steamos_kernel/pull/25
 
 ---

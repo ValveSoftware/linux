@@ -1,7 +1,7 @@
-From c4948d923637a956853df0e85a6d530e483bdffa Mon Sep 17 00:00:00 2001
+From ad085e042f24ad571530145fbed01f8ad01a7dc7 Mon Sep 17 00:00:00 2001
 From: "Pierre-Loup A. Griffais" <eduke32@plagman.net>
 Date: Mon, 28 Dec 2015 13:52:02 -0800
-Subject: [PATCH 7/9] xpad: one more third-party controller, courtesy of
+Subject: [PATCH 07/10] xpad: one more third-party controller, courtesy of
  Ignacio Quezada
 
 ---
