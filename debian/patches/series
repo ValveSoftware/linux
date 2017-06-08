@@ -177,7 +177,6 @@ bugfix/all/liblockdep-fix-defined-but-not-used-warning-for-init.patch
 0001-remove-stray-linux-init-header-from-vdso.patch
 0002-i915-only-disable-default-vga-device.patch
 0003-broadwell-enable-fast-sample-c-ops.patch
-0004-Port-Sony-controller-fixes-from-brewmaster-4.1-kerne.patch
 0005-Add-support-for-the-Xbox-One-S-controller-over-Bluet.patch
 0006-sixaxis-dualshock-report-via-ctrl-quirk.patch
 0007-xpad-one-more-third-party-controller-courtesy-of-Ign.patch
