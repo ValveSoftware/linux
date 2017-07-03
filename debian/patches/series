@@ -1,5 +1,13 @@
 # Changes to support package build system
-0010-fix-crash-on-plugging-in-PS4-controller.patch
+0001-remove-stray-linux-init-header-from-vdso.patch
+0002-i915-only-disable-default-vga-device.patch
+0003-broadwell-enable-fast-sample-c-ops.patch
+0004-Add-support-for-the-Xbox-One-S-controller-over-Bluet.patch
+0005-sixaxis-dualshock-report-via-ctrl-quirk.patch
+0006-xpad-one-more-third-party-controller-courtesy-of-Ign.patch
+0007-add-REPORTING-BUGS-file-to-fix-build.patch
+0008-add-steamos-EXTRAVERSION.patch
+0009-fix-bad-logic-in-Sony-LED-suspend-resume-path.patch
 debian/version.patch
 debian/uname-version-timestamp.patch
 debian/kernelvariables.patch
@@ -174,11 +182,3 @@ bugfix/all/liblockdep-enable-wall-by-default.patch
 bugfix/all/liblockdep-fix-unused-value-warnings.patch
 bugfix/all/liblockdep-fix-set-but-not-used-warnings.patch
 bugfix/all/liblockdep-fix-defined-but-not-used-warning-for-init.patch
-0001-remove-stray-linux-init-header-from-vdso.patch
-0002-i915-only-disable-default-vga-device.patch
-0003-broadwell-enable-fast-sample-c-ops.patch
-0005-Add-support-for-the-Xbox-One-S-controller-over-Bluet.patch
-0006-sixaxis-dualshock-report-via-ctrl-quirk.patch
-0007-xpad-one-more-third-party-controller-courtesy-of-Ign.patch
-0008-add-REPORTING-BUGS-file-to-fix-build.patch
-0009-add-steamos-EXTRAVERSION.patch

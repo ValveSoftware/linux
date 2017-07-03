@@ -1,18 +1,18 @@
-From 78c25f95ab79a03c1f71a144b99e30cb401172ee Mon Sep 17 00:00:00 2001
+From 9ce4a25373d5e6812ca50124e43d7ae6af78ef81 Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Wed, 7 Jun 2017 14:51:24 -0700
-Subject: [PATCH 10/10] fix crash on plugging in PS4 controller. Thanks to
- @flibitijibibo for finding the problem.
+Subject: [PATCH 9/9] fix bad logic in Sony LED suspend/resume path Thanks to
+ @flibitijibibo for pointing out the problem.
 
 ---
  drivers/hid/hid-sony.c | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/hid/hid-sony.c b/drivers/hid/hid-sony.c
-index 89302ea..5c8d2d0 100644
+index 740996f..155d548 100644
 --- a/drivers/hid/hid-sony.c
 +++ b/drivers/hid/hid-sony.c
-@@ -2785,8 +2785,8 @@ static int sony_suspend(struct hid_device *hdev, pm_message_t message)
+@@ -2740,8 +2740,8 @@ static int sony_suspend(struct hid_device *hdev, pm_message_t message)
  	 * On suspend save the current LED state,
  	 * stop running force-feedback and blank the LEDS.
  	 */
@@ -23,7 +23,7 @@ index 89302ea..5c8d2d0 100644
  
  #ifdef CONFIG_SONY_FF
  		sc->left = sc->right = 0;
-@@ -2805,8 +2805,8 @@ static int sony_suspend(struct hid_device *hdev, pm_message_t message)
+@@ -2760,8 +2760,8 @@ static int sony_suspend(struct hid_device *hdev, pm_message_t message)
  static int sony_resume(struct hid_device *hdev)
  {
  	/* Restore the state of controller LEDs on resume */

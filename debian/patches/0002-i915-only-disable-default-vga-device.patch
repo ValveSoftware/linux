@@ -1,17 +1,17 @@
-From 5431b5b1999c3d3b5efee817fb3373fbbd473063 Mon Sep 17 00:00:00 2001
+From 543f4702799fb81a6bf98ba4d3bdaf29bf940f01 Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:02 +0000
-Subject: [PATCH 02/10] i915 only disable default vga device
+Subject: [PATCH 2/9] i915 only disable default vga device
 
 ---
  drivers/gpu/drm/i915/intel_display.c | 14 ++++++++------
  1 file changed, 8 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/i915/intel_display.c b/drivers/gpu/drm/i915/intel_display.c
-index ed1f4f2..2705b2a 100644
+index 24cee1d..1f0f7b9 100644
 --- a/drivers/gpu/drm/i915/intel_display.c
 +++ b/drivers/gpu/drm/i915/intel_display.c
-@@ -16505,12 +16505,14 @@ static void i915_disable_vga(struct drm_i915_private *dev_priv)
+@@ -16516,12 +16516,14 @@ static void i915_disable_vga(struct drm_i915_private *dev_priv)
  	i915_reg_t vga_reg = i915_vgacntrl_reg(dev_priv);
  
  	/* WaEnableVGAAccessThroughIOPort:ctg,elk,ilk,snb,ivb,vlv,hsw */
