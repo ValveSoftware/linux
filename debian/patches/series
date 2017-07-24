@@ -3,10 +3,6 @@
 0002-i915-only-disable-default-vga-device.patch
 0003-broadwell-enable-fast-sample-c-ops.patch
 0004-Add-support-for-the-Xbox-One-S-controller-over-Bluet.patch
-0005-sixaxis-dualshock-report-via-ctrl-quirk.patch
-0006-xpad-one-more-third-party-controller-courtesy-of-Ign.patch
-0007-add-REPORTING-BUGS-file-to-fix-build.patch
-0008-add-steamos-EXTRAVERSION.patch
 0009-fix-bad-logic-in-Sony-LED-suspend-resume-path.patch
 debian/version.patch
 debian/uname-version-timestamp.patch
@@ -152,7 +148,6 @@ debian/i386-686-pae-pci-set-pci-nobios-by-default.patch
 
 # Fix exported symbol versions
 bugfix/ia64/revert-ia64-move-exports-to-definitions.patch
-bugfix/sparc/revert-sparc-move-exports-to-definitions.patch
 bugfix/m68k/revert-m68k-move-exports-to-definitions.patch
 bugfix/alpha/revert-alpha-move-exports-to-actual-definitions.patch
 bugfix/powerpc/powerpc-remove-mac-on-linux-hooks.patch
@@ -176,7 +171,6 @@ bugfix/all/tools-build-remove-bpf-run-time-check-at-build-time.patch
 bugfix/all/cpupower-bump-soname-version.patch
 bugfix/all/cpupower-fix-checks-for-cpu-existence.patch
 bugfix/all/liblockdep-fix-undefined-symbol-prandom_u32.patch
-bugfix/all/liblockdep-reduce-max_lock_depth-to-avoid-overflowin.patch
 bugfix/all/liblockdep-define-the-array_size-macro.patch
 bugfix/all/liblockdep-enable-wall-by-default.patch
 bugfix/all/liblockdep-fix-unused-value-warnings.patch
