@@ -1,0 +1,36 @@
+From fe846757feb23380be2f2d22fddb4c93822db986 Mon Sep 17 00:00:00 2001
+From: vivek <vivek@collabora.com>
+Date: Tue, 3 Nov 2015 20:43:03 +0000
+Subject: [PATCH 5/8] sixaxis dualshock report via ctrl quirk
+
+---
+ net/bluetooth/hidp/core.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/net/bluetooth/hidp/core.c b/net/bluetooth/hidp/core.c
+index 8112893037bd..4dd706c5941d 100644
+--- a/net/bluetooth/hidp/core.c
++++ b/net/bluetooth/hidp/core.c
+@@ -379,9 +379,16 @@ static int hidp_output_report(struct hid_device *hid, __u8 *data, size_t count)
+ {
+ 	struct hidp_session *session = hid->driver_data;
+ 
+-	return hidp_send_intr_message(session,
+-				      HIDP_TRANS_DATA | HIDP_DATA_RTYPE_OUPUT,
+-				      data, count);
++	/* The Sixaxis and Dualshock 4 wants report sent via the ctrl channel */
++	if(hid->vendor == 0x54c && (hid->product == 0x5c4 || hid->product == 0x268)) {
++		return hidp_send_ctrl_message(session,
++					      HIDP_TRANS_SET_REPORT | HIDP_DATA_RTYPE_OUPUT,
++					      data, count);
++	} else {
++		return hidp_send_intr_message(session,
++					      HIDP_TRANS_DATA | HIDP_DATA_RTYPE_OUPUT,
++					      data, count);
++	}
+ }
+ 
+ static int hidp_raw_request(struct hid_device *hid, unsigned char reportnum,
+-- 
+2.14.1
+
