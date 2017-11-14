@@ -503,7 +503,7 @@ CONFIG_DRM_AMD_ACP=y
 ##
 ## file: drivers/gpu/drm/amd/amdgpu/Kconfig
 ##
-# CONFIG_DRM_AMDGPU_CIK is not set
+CONFIG_DRM_AMDGPU_CIK=y
 CONFIG_DRM_AMDGPU_USERPTR=y
 
 ##

@@ -12,10 +12,7 @@ DISTRIBUTION := $(shell dpkg-parsechangelog -SDistribution)
 SOURCE_DATE := $(shell dpkg-parsechangelog -SDate)
 SOURCE_DATE_UTC_ISO := $(shell date -u -d '$(SOURCE_DATE)' +%Y-%m-%d)
 
-DISTRIBUTOR := $(shell lsb_release -is 2>/dev/null)
-ifeq ($(DISTRIBUTOR),)
-DISTRIBUTOR := Debian
-endif
+DISTRIBUTOR := SteamOS
 
 include debian/rules.defs
 

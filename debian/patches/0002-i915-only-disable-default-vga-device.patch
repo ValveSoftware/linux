@@ -1,0 +1,37 @@
+From 543f4702799fb81a6bf98ba4d3bdaf29bf940f01 Mon Sep 17 00:00:00 2001
+From: vivek <vivek@collabora.com>
+Date: Tue, 3 Nov 2015 20:43:02 +0000
+Subject: [PATCH 2/9] i915 only disable default vga device
+
+---
+ drivers/gpu/drm/i915/intel_display.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/i915/intel_display.c b/drivers/gpu/drm/i915/intel_display.c
+index 24cee1d..1f0f7b9 100644
+--- a/drivers/gpu/drm/i915/intel_display.c
++++ b/drivers/gpu/drm/i915/intel_display.c
+@@ -16516,12 +16516,14 @@ static void i915_disable_vga(struct drm_i915_private *dev_priv)
+ 	i915_reg_t vga_reg = i915_vgacntrl_reg(dev_priv);
+ 
+ 	/* WaEnableVGAAccessThroughIOPort:ctg,elk,ilk,snb,ivb,vlv,hsw */
+-	vga_get_uninterruptible(pdev, VGA_RSRC_LEGACY_IO);
+-	outb(SR01, VGA_SR_INDEX);
+-	sr1 = inb(VGA_SR_DATA);
+-	outb(sr1 | 1<<5, VGA_SR_DATA);
+-	vga_put(pdev, VGA_RSRC_LEGACY_IO);
+-	udelay(300);
++	if (pdev == vga_default_device()) {
++		vga_get_uninterruptible(pdev, VGA_RSRC_LEGACY_IO);
++		outb(SR01, VGA_SR_INDEX);
++		sr1 = inb(VGA_SR_DATA);
++		outb(sr1 | 1<<5, VGA_SR_DATA);
++		vga_put(pdev, VGA_RSRC_LEGACY_IO);
++		udelay(300);
++	}
+ 
+ 	I915_WRITE(vga_reg, VGA_DISP_DISABLE);
+ 	POSTING_READ(vga_reg);
+-- 
+2.7.4
+

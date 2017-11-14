@@ -1,4 +1,9 @@
 # Changes to support package build system
+0001-remove-stray-linux-init-header-from-vdso.patch
+0002-i915-only-disable-default-vga-device.patch
+0003-broadwell-enable-fast-sample-c-ops.patch
+0004-Add-support-for-the-Xbox-One-S-controller-over-Bluet.patch
+0009-fix-bad-logic-in-Sony-LED-suspend-resume-path.patch
 debian/version.patch
 debian/uname-version-timestamp.patch
 debian/kernelvariables.patch
