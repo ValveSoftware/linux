@@ -66,6 +66,7 @@ Build-Depends-Indep:
  graphviz,
  python-sphinx,
  python-sphinx-rtd-theme,
+ python-six,
  xmlto
 Build-Depends-Arch: 
 Vcs-Git: https://anonscm.debian.org/git/kernel/linux.git
