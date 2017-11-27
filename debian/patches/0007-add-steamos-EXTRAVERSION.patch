@@ -7,19 +7,14 @@ Subject: [PATCH 7/7] add -steamos EXTRAVERSION
  Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index 01f9df1af256..48dd7a3087fd 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2,7 +2,7 @@
  VERSION = 4
  PATCHLEVEL = 14
- SUBLEVEL = 1
+ SUBLEVEL = 2
 -EXTRAVERSION =
 +EXTRAVERSION = -steamos
  NAME = Petit Gorille
  
  # *DOCUMENTATION*
--- 
-2.14.1
-
