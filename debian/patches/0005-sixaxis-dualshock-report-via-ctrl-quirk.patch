@@ -1,7 +1,7 @@
-From fe846757feb23380be2f2d22fddb4c93822db986 Mon Sep 17 00:00:00 2001
+From 839da0c6bc657dffe4548f04955b4edb8c9a5ae9 Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:03 +0000
-Subject: [PATCH 5/8] sixaxis dualshock report via ctrl quirk
+Subject: [PATCH 5/7] sixaxis dualshock report via ctrl quirk
 
 ---
  net/bluetooth/hidp/core.c | 13 ++++++++++---

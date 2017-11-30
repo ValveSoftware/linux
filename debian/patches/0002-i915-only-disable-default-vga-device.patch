@@ -1,7 +1,7 @@
-From c4ec0a5598d5ce23caf15fdfee8376e0daf75b47 Mon Sep 17 00:00:00 2001
+From f0c2665206fac921063f66efb5355eb79c4ea161 Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:02 +0000
-Subject: [PATCH 2/8] i915 only disable default vga device
+Subject: [PATCH 2/7] i915 only disable default vga device
 
 ---
  drivers/gpu/drm/i915/intel_display.c | 14 ++++++++------
