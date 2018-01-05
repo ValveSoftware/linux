@@ -1,4 +1,4 @@
-From 326fbf15157d412a104d74cade6632bd12b3d00b Mon Sep 17 00:00:00 2001
+From 71483d97527ca7b8983c0d6be370a07a47f7e5ca Mon Sep 17 00:00:00 2001
 From: "Pierre-Loup A. Griffais" <eduke32@plagman.net>
 Date: Wed, 16 Nov 2016 17:17:09 -0800
 Subject: [PATCH 4/7] Add support for the Xbox One S controller over Bluetooth

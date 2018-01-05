@@ -1,4 +1,4 @@
-From 5669c6ac870755bedc8843bd73c654f76b1bd021 Mon Sep 17 00:00:00 2001
+From e400fdc2e70535725b23e023764db5cd294de834 Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Fri, 5 May 2017 12:04:21 -0700
 Subject: [PATCH 7/7] add -steamos EXTRAVERSION
@@ -8,13 +8,13 @@ Subject: [PATCH 7/7] add -steamos EXTRAVERSION
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index ede4de0d8634..7546a3535bb6 100644
+index 20f7d4de0f1c..20cced8e5711 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2,7 +2,7 @@
  VERSION = 4
  PATCHLEVEL = 14
- SUBLEVEL = 3
+ SUBLEVEL = 12
 -EXTRAVERSION =
 +EXTRAVERSION = -steamos
  NAME = Petit Gorille

@@ -1,3 +1,9 @@
+linux (4.14.12-1-steamos1) brewmaster; urgency=medium
+
+  * SteamOS 4.14.12 kernel release
+
+ -- John Vert <johnv@valvesoftware.com>  Fri, 05 Jan 2018 13:23:55 -0800
+
 linux (4.14.3-1~steamos1) brewmaster; urgency=medium
 
   * SteamOS 4.14.3 kernel release
