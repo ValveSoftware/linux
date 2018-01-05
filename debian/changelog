@@ -1,4 +1,4 @@
-linux (4.14.12-1-steamos1) brewmaster; urgency=medium
+linux (4.14.12-1~steamos1) brewmaster; urgency=medium
 
   * SteamOS 4.14.12 kernel release
 
