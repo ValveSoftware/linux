@@ -1,16 +1,16 @@
 From: J. R. Okajima <hooanon05@yahoo.co.jp>
-Date: Thu Sep 28 22:42:44 2017 +0900
-Subject: aufs4.x-rcN standalone patch
-Origin: https://github.com/sfjro/aufs4-standalone/tree/2fd397407f9d85de19dd837bc1a48b3872582366
+Date: Thu Nov 16 10:20:27 2017 +0900
+Subject: aufs4.14 standalone patch
+Origin: https://github.com/sfjro/aufs4-standalone/tree/bf518fb574cee10c6112f0e9ca5c67b277426630
 Bug-Debian: https://bugs.debian.org/541828
 
 Patch headers added by debian/patches/features/all/aufs4/gen-patch
 
-aufs4.x-rcN standalone patch
+aufs4.14 standalone patch
 
 --- a/fs/dcache.c
 +++ b/fs/dcache.c
-@@ -1305,6 +1305,7 @@
+@@ -1305,6 +1305,7 @@ rename_retry:
  	seq = 1;
  	goto again;
  }
@@ -18,7 +18,7 @@ aufs4.x-rcN standalone patch
  
  struct check_mount {
  	struct vfsmount *mnt;
-@@ -2894,6 +2895,7 @@
+@@ -2894,6 +2895,7 @@ void d_exchange(struct dentry *dentry1,
  
  	write_sequnlock(&rename_lock);
  }
@@ -28,7 +28,7 @@ aufs4.x-rcN standalone patch
   * d_ancestor - search for an ancestor
 --- a/fs/exec.c
 +++ b/fs/exec.c
-@@ -109,6 +109,7 @@
+@@ -109,6 +109,7 @@ bool path_noexec(const struct path *path
  	return (path->mnt->mnt_flags & MNT_NOEXEC) ||
  	       (path->mnt->mnt_sb->s_iflags & SB_I_NOEXEC);
  }
@@ -38,7 +38,7 @@ aufs4.x-rcN standalone patch
  /*
 --- a/fs/fcntl.c
 +++ b/fs/fcntl.c
-@@ -85,6 +85,7 @@
+@@ -85,6 +85,7 @@ int setfl(int fd, struct file * filp, un
   out:
  	return error;
  }
@@ -48,7 +48,7 @@ aufs4.x-rcN standalone patch
                       int force)
 --- a/fs/file_table.c
 +++ b/fs/file_table.c
-@@ -148,6 +148,7 @@
+@@ -148,6 +148,7 @@ over:
  	}
  	return ERR_PTR(-ENFILE);
  }
@@ -56,7 +56,7 @@ aufs4.x-rcN standalone patch
  
  /**
   * alloc_file - allocate and initialize a 'struct file'
-@@ -258,6 +259,7 @@
+@@ -258,6 +259,7 @@ void flush_delayed_fput(void)
  {
  	delayed_fput(NULL);
  }
@@ -64,7 +64,7 @@ aufs4.x-rcN standalone patch
  
  static DECLARE_DELAYED_WORK(delayed_fput_work, delayed_fput);
  
-@@ -300,6 +302,7 @@
+@@ -300,6 +302,7 @@ void __fput_sync(struct file *file)
  }
  
  EXPORT_SYMBOL(fput);
@@ -72,7 +72,7 @@ aufs4.x-rcN standalone patch
  
  void put_filp(struct file *file)
  {
-@@ -308,6 +311,7 @@
+@@ -308,6 +311,7 @@ void put_filp(struct file *file)
  		file_free(file);
  	}
  }
@@ -82,7 +82,7 @@ aufs4.x-rcN standalone patch
  {
 --- a/fs/inode.c
 +++ b/fs/inode.c
-@@ -1664,6 +1664,7 @@
+@@ -1664,6 +1664,7 @@ int update_time(struct inode *inode, str
  
  	return update_time(inode, time, flags);
  }
@@ -92,7 +92,7 @@ aufs4.x-rcN standalone patch
   *	touch_atime	-	update the access time
 --- a/fs/namespace.c
 +++ b/fs/namespace.c
-@@ -517,6 +517,7 @@
+@@ -517,6 +517,7 @@ void __mnt_drop_write(struct vfsmount *m
  	mnt_dec_writers(real_mount(mnt));
  	preempt_enable();
  }
@@ -100,7 +100,7 @@ aufs4.x-rcN standalone patch
  
  /**
   * mnt_drop_write - give up write access to a mount
-@@ -851,6 +852,7 @@
+@@ -851,6 +852,7 @@ int is_current_mnt_ns(struct vfsmount *m
  {
  	return check_mnt(real_mount(mnt));
  }
@@ -108,7 +108,7 @@ aufs4.x-rcN standalone patch
  
  /*
   * vfsmount lock must be held for write
-@@ -1887,6 +1889,7 @@
+@@ -1887,6 +1889,7 @@ int iterate_mounts(int (*f)(struct vfsmo
  	}
  	return 0;
  }
@@ -126,7 +126,7 @@ aufs4.x-rcN standalone patch
  
  #include <linux/fsnotify_backend.h>
  #include "fsnotify.h"
-@@ -109,6 +110,7 @@
+@@ -109,6 +110,7 @@ void fsnotify_get_group(struct fsnotify_
  {
  	atomic_inc(&group->refcnt);
  }
@@ -134,7 +134,7 @@ aufs4.x-rcN standalone patch
  
  /*
   * Drop a reference to a group.  Free it if it's through.
-@@ -118,6 +120,7 @@
+@@ -118,6 +120,7 @@ void fsnotify_put_group(struct fsnotify_
  	if (atomic_dec_and_test(&group->refcnt))
  		fsnotify_final_destroy_group(group);
  }
@@ -142,7 +142,7 @@ aufs4.x-rcN standalone patch
  
  /*
   * Create a new fsnotify_group and hold a reference for the group returned.
-@@ -147,6 +150,7 @@
+@@ -147,6 +150,7 @@ struct fsnotify_group *fsnotify_alloc_gr
  
  	return group;
  }
@@ -152,15 +152,15 @@ aufs4.x-rcN standalone patch
  {
 --- a/fs/notify/mark.c
 +++ b/fs/notify/mark.c
-@@ -124,6 +124,7 @@
- 	else if (conn->flags & FSNOTIFY_OBJ_TYPE_VFSMOUNT)
- 		real_mount(conn->mnt)->mnt_fsnotify_mask = new_mask;
+@@ -245,6 +245,7 @@ void fsnotify_put_mark(struct fsnotify_m
+ 	queue_delayed_work(system_unbound_wq, &reaper_work,
+ 			   FSNOTIFY_REAPER_DELAY);
  }
 +EXPORT_SYMBOL_GPL(fsnotify_put_mark);
  
  /*
-  * Calculate mask of events for a list of marks. The caller must make sure
-@@ -392,6 +393,7 @@
+  * Get mark reference when we found the mark via lockless traversal of object
+@@ -392,6 +393,7 @@ void fsnotify_destroy_mark(struct fsnoti
  	mutex_unlock(&group->mark_mutex);
  	fsnotify_free_mark(mark);
  }
@@ -168,7 +168,7 @@ aufs4.x-rcN standalone patch
  
  /*
   * Sorting function for lists of fsnotify marks.
-@@ -604,6 +606,7 @@
+@@ -604,6 +606,7 @@ err:
  	fsnotify_put_mark(mark);
  	return ret;
  }
@@ -176,7 +176,7 @@ aufs4.x-rcN standalone patch
  
  int fsnotify_add_mark(struct fsnotify_mark *mark, struct inode *inode,
  		      struct vfsmount *mnt, int allow_dups)
-@@ -739,6 +742,7 @@
+@@ -739,6 +742,7 @@ void fsnotify_init_mark(struct fsnotify_
  	fsnotify_get_group(group);
  	mark->group = group;
  }
@@ -186,7 +186,7 @@ aufs4.x-rcN standalone patch
   * Destroy all marks in destroy_list, waits for SRCU period to finish before
 --- a/fs/open.c
 +++ b/fs/open.c
-@@ -64,6 +64,7 @@
+@@ -64,6 +64,7 @@ int do_truncate(struct dentry *dentry, l
  	inode_unlock(dentry->d_inode);
  	return ret;
  }
@@ -194,7 +194,7 @@ aufs4.x-rcN standalone patch
  
  long vfs_truncate(const struct path *path, loff_t length)
  {
-@@ -691,6 +692,7 @@
+@@ -691,6 +692,7 @@ int open_check_o_direct(struct file *f)
  	}
  	return 0;
  }
@@ -204,7 +204,7 @@ aufs4.x-rcN standalone patch
  			  struct inode *inode,
 --- a/fs/read_write.c
 +++ b/fs/read_write.c
-@@ -454,6 +454,7 @@
+@@ -454,6 +454,7 @@ ssize_t vfs_read(struct file *file, char
  
  	return ret;
  }
@@ -212,7 +212,7 @@ aufs4.x-rcN standalone patch
  
  static ssize_t new_sync_write(struct file *filp, const char __user *buf, size_t len, loff_t *ppos)
  {
-@@ -494,6 +495,7 @@
+@@ -494,6 +495,7 @@ vfs_readf_t vfs_readf(struct file *file)
  		return new_sync_read;
  	return ERR_PTR(-ENOSYS);
  }
@@ -220,7 +220,7 @@ aufs4.x-rcN standalone patch
  
  vfs_writef_t vfs_writef(struct file *file)
  {
-@@ -505,6 +507,7 @@
+@@ -505,6 +507,7 @@ vfs_writef_t vfs_writef(struct file *fil
  		return new_sync_write;
  	return ERR_PTR(-ENOSYS);
  }
@@ -228,7 +228,7 @@ aufs4.x-rcN standalone patch
  
  ssize_t __kernel_write(struct file *file, const void *buf, size_t count, loff_t *pos)
  {
-@@ -574,6 +577,7 @@
+@@ -574,6 +577,7 @@ ssize_t vfs_write(struct file *file, con
  
  	return ret;
  }
@@ -238,7 +238,7 @@ aufs4.x-rcN standalone patch
  {
 --- a/fs/splice.c
 +++ b/fs/splice.c
-@@ -850,6 +850,7 @@
+@@ -850,6 +850,7 @@ long do_splice_from(struct pipe_inode_in
  
  	return splice_write(pipe, out, ppos, len, flags);
  }
@@ -246,7 +246,7 @@ aufs4.x-rcN standalone patch
  
  /*
   * Attempt to initiate a splice from a file to a pipe.
-@@ -879,6 +880,7 @@
+@@ -879,6 +880,7 @@ long do_splice_to(struct file *in, loff_
  
  	return splice_read(in, ppos, pipe, len, flags);
  }
@@ -256,7 +256,7 @@ aufs4.x-rcN standalone patch
   * splice_direct_to_actor - splices data directly between two non-pipes
 --- a/fs/sync.c
 +++ b/fs/sync.c
-@@ -39,6 +39,7 @@
+@@ -39,6 +39,7 @@ int __sync_filesystem(struct super_block
  		sb->s_op->sync_fs(sb, wait);
  	return __sync_blockdev(sb->s_bdev, wait);
  }
@@ -266,7 +266,7 @@ aufs4.x-rcN standalone patch
   * Write out and wait upon all dirty data associated with this
 --- a/fs/xattr.c
 +++ b/fs/xattr.c
-@@ -297,6 +297,7 @@
+@@ -297,6 +297,7 @@ vfs_getxattr_alloc(struct dentry *dentry
  	*xattr_value = value;
  	return error;
  }
@@ -274,16 +274,26 @@ aufs4.x-rcN standalone patch
  
  ssize_t
  __vfs_getxattr(struct dentry *dentry, struct inode *inode, const char *name,
+--- a/kernel/locking/lockdep.c
++++ b/kernel/locking/lockdep.c
+@@ -155,6 +155,7 @@ inline struct lock_class *lockdep_hlock_
+ 	}
+ 	return lock_classes + hlock->class_idx - 1;
+ }
++EXPORT_SYMBOL_GPL(lockdep_hlock_class);
+ #define hlock_class(hlock) lockdep_hlock_class(hlock)
+ 
+ #ifdef CONFIG_LOCK_STAT
 --- a/kernel/task_work.c
 +++ b/kernel/task_work.c
-@@ -116,3 +116,4 @@
+@@ -116,3 +116,4 @@ void task_work_run(void)
  		} while (work);
  	}
  }
 +EXPORT_SYMBOL_GPL(task_work_run);
 --- a/security/commoncap.c
 +++ b/security/commoncap.c
-@@ -1270,12 +1270,14 @@
+@@ -1270,12 +1270,14 @@ int cap_mmap_addr(unsigned long addr)
  	}
  	return ret;
  }
@@ -308,7 +318,7 @@ aufs4.x-rcN standalone patch
  #include <linux/list.h>
  #include <linux/uaccess.h>
  #include <linux/seq_file.h>
-@@ -850,6 +851,7 @@
+@@ -850,6 +851,7 @@ int __devcgroup_inode_permission(struct
  	return __devcgroup_check_permission(type, imajor(inode), iminor(inode),
  			access);
  }
@@ -318,7 +328,7 @@ aufs4.x-rcN standalone patch
  {
 --- a/security/security.c
 +++ b/security/security.c
-@@ -530,6 +530,7 @@
+@@ -530,6 +530,7 @@ int security_path_rmdir(const struct pat
  		return 0;
  	return call_int_hook(path_rmdir, 0, dir, dentry);
  }
@@ -326,7 +336,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_unlink(const struct path *dir, struct dentry *dentry)
  {
-@@ -546,6 +547,7 @@
+@@ -546,6 +547,7 @@ int security_path_symlink(const struct p
  		return 0;
  	return call_int_hook(path_symlink, 0, dir, dentry, old_name);
  }
@@ -334,7 +344,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_link(struct dentry *old_dentry, const struct path *new_dir,
  		       struct dentry *new_dentry)
-@@ -554,6 +556,7 @@
+@@ -554,6 +556,7 @@ int security_path_link(struct dentry *ol
  		return 0;
  	return call_int_hook(path_link, 0, old_dentry, new_dir, new_dentry);
  }
@@ -342,7 +352,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_rename(const struct path *old_dir, struct dentry *old_dentry,
  			 const struct path *new_dir, struct dentry *new_dentry,
-@@ -581,6 +584,7 @@
+@@ -581,6 +584,7 @@ int security_path_truncate(const struct
  		return 0;
  	return call_int_hook(path_truncate, 0, path);
  }
@@ -350,7 +360,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_chmod(const struct path *path, umode_t mode)
  {
-@@ -588,6 +592,7 @@
+@@ -588,6 +592,7 @@ int security_path_chmod(const struct pat
  		return 0;
  	return call_int_hook(path_chmod, 0, path, mode);
  }
@@ -358,7 +368,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_chown(const struct path *path, kuid_t uid, kgid_t gid)
  {
-@@ -595,6 +600,7 @@
+@@ -595,6 +600,7 @@ int security_path_chown(const struct pat
  		return 0;
  	return call_int_hook(path_chown, 0, path, uid, gid);
  }
@@ -366,7 +376,7 @@ aufs4.x-rcN standalone patch
  
  int security_path_chroot(const struct path *path)
  {
-@@ -680,6 +686,7 @@
+@@ -680,6 +686,7 @@ int security_inode_readlink(struct dentr
  		return 0;
  	return call_int_hook(inode_readlink, 0, dentry);
  }
@@ -374,7 +384,7 @@ aufs4.x-rcN standalone patch
  
  int security_inode_follow_link(struct dentry *dentry, struct inode *inode,
  			       bool rcu)
-@@ -695,6 +702,7 @@
+@@ -695,6 +702,7 @@ int security_inode_permission(struct ino
  		return 0;
  	return call_int_hook(inode_permission, 0, inode, mask);
  }
@@ -382,7 +392,7 @@ aufs4.x-rcN standalone patch
  
  int security_inode_setattr(struct dentry *dentry, struct iattr *attr)
  {
-@@ -866,6 +874,7 @@
+@@ -866,6 +874,7 @@ int security_file_permission(struct file
  
  	return fsnotify_perm(file, mask);
  }
@@ -390,7 +400,7 @@ aufs4.x-rcN standalone patch
  
  int security_file_alloc(struct file *file)
  {
-@@ -925,6 +934,7 @@
+@@ -925,6 +934,7 @@ int security_mmap_file(struct file *file
  		return ret;
  	return ima_file_mmap(file, prot);
  }

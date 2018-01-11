@@ -30,7 +30,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
 
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4018,6 +4018,10 @@
+@@ -4010,6 +4010,10 @@
  
  	switches=	[HW,M68k]
  
@@ -43,7 +43,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  			on older distributions. When this option is enabled
 --- a/arch/x86/Kconfig
 +++ b/arch/x86/Kconfig
-@@ -2833,6 +2833,14 @@
+@@ -2832,6 +2832,14 @@ config COMPAT_32
  	select HAVE_UID16
  	select OLD_SIGSUSPEND3
  
@@ -68,7 +68,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  
  typedef unsigned long elf_greg_t;
  
-@@ -163,7 +164,7 @@
+@@ -163,7 +164,7 @@ do {						\
  
  #define compat_elf_check_arch(x)					\
  	(elf_check_arch_ia32(x) ||					\
@@ -79,7 +79,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  # error "The following code assumes __USER32_DS == __USER_DS"
 --- a/arch/x86/entry/entry_64.S
 +++ b/arch/x86/entry/entry_64.S
-@@ -255,8 +255,12 @@
+@@ -247,8 +247,12 @@ entry_SYSCALL_64_fastpath:
  #if __SYSCALL_MASK == ~0
  	cmpq	$__NR_syscall_max, %rax
  #else
@@ -94,7 +94,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  #endif
  	ja	1f				/* return -ENOSYS (already in pt_regs->ax) */
  	movq	%r10, %rcx
-@@ -414,6 +418,16 @@
+@@ -405,6 +409,16 @@ syscall_return_via_sysret:
  	USERGS_SYSRET64
  END(entry_SYSCALL_64)
  
@@ -128,7 +128,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  
  #define __SYSCALL_64_QUAL_(sym) sym
  #define __SYSCALL_64_QUAL_ptregs(sym) ptregs_##sym
-@@ -26,3 +32,36 @@
+@@ -26,3 +32,36 @@ asmlinkage const sys_call_ptr_t sys_call
  	[0 ... __NR_syscall_max] = &sys_ni_syscall,
  #include <asm/syscalls_64.h>
  };
@@ -167,7 +167,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
 +#endif
 --- a/arch/x86/entry/common.c
 +++ b/arch/x86/entry/common.c
-@@ -271,6 +271,7 @@
+@@ -271,6 +271,7 @@ __visible void do_syscall_64(struct pt_r
  {
  	struct thread_info *ti = current_thread_info();
  	unsigned long nr = regs->orig_ax;
@@ -175,7 +175,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  
  	enter_from_user_mode();
  	local_irq_enable();
-@@ -283,8 +284,19 @@
+@@ -283,8 +284,19 @@ __visible void do_syscall_64(struct pt_r
  	 * table.  The only functional difference is the x32 bit in
  	 * regs->orig_ax, which changes the behavior of some syscalls.
  	 */
@@ -199,7 +199,7 @@ Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
  	}
 --- a/arch/x86/include/asm/syscall.h
 +++ b/arch/x86/include/asm/syscall.h
-@@ -35,6 +35,12 @@
+@@ -35,6 +35,12 @@ extern const sys_call_ptr_t sys_call_tab
  extern const sys_call_ptr_t ia32_sys_call_table[];
  #endif
  
