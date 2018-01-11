@@ -1,3 +1,9 @@
+linux (4.14.13-1~steamos1) brewmaster; urgency=medium
+
+  * SteamOS 4.14.13 kernel release
+
+ -- John Vert <johnv@valvesoftware.com>  Thu, 11 Jan 2018 12:48:33 -0800
+
 linux (4.14.12-2~steamos2) brewmaster; urgency=medium
 
   * add libelf-dev and libc6-dev dependencies to linux-headers packages

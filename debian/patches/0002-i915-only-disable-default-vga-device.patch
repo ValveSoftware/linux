@@ -1,4 +1,4 @@
-From 5dc5516e3aad9047234aec1cfa8a42ea1fe12400 Mon Sep 17 00:00:00 2001
+From 42e900ae641c79a036a64a31efa46f1cfb3774c2 Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:02 +0000
 Subject: [PATCH 2/7] i915 only disable default vga device

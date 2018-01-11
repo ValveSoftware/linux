@@ -1,4 +1,4 @@
-From fbe283c9f5676456eb8a5759843046af8a280ce1 Mon Sep 17 00:00:00 2001
+From 6635ead206ab03ae80aca4155146095b40b016d5 Mon Sep 17 00:00:00 2001
 From: John Vert <johnv@valvesoftware.com>
 Date: Fri, 20 Jan 2017 14:47:55 -0800
 Subject: [PATCH 3/7] broadwell enable fast sample c ops

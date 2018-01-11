@@ -1,4 +1,4 @@
-From dc396f98afc5e23192969ff0587e7c50def08332 Mon Sep 17 00:00:00 2001
+From 747397a3fea3f641ea72531acf8078c409d52c0d Mon Sep 17 00:00:00 2001
 From: vivek <vivek@collabora.com>
 Date: Tue, 3 Nov 2015 20:43:03 +0000
 Subject: [PATCH 5/7] sixaxis dualshock report via ctrl quirk
